@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Habits</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0C0F0A;
+            --text: #E8E4D9;
+            --text-muted: #9A9486;
+            --accent: #A8C67F;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mark {
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1.2s ease 0.2s forwards;
+        }
+
+        .mark h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            letter-spacing: -0.03em;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .mark p {
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: var(--text-muted);
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="mark">
+        <h1>Human Habits</h1>
+        <p>Something's coming.</p>
+    </div>
+</body>
+</html>

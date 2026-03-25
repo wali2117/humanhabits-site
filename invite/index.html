@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You've been invited — Human Habits</title>
+    <meta name="description" content="Someone wants to build habits with you. Download Human Habits to accept their invitation.">
+    <meta property="og:title" content="You've been invited to Human Habits">
+    <meta property="og:description" content="Someone wants to commit to building habits together. Join them.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0C0F0A;
+            --surface: #151A12;
+            --text: #E8E4D9;
+            --text-muted: #9A9486;
+            --accent: #A8C67F;
+            --accent-glow: rgba(168, 198, 127, 0.12);
+            --warm: #D4A574;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .card {
+            max-width: 440px;
+            width: 100%;
+            text-align: center;
+            background: var(--surface);
+            border: 1px solid rgba(168, 198, 127, 0.08);
+            border-radius: 24px;
+            padding: 56px 40px;
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--warm);
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            padding: 6px 16px;
+            border-radius: 100px;
+            margin-bottom: 28px;
+        }
+
+        h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.8rem;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+
+        h1 span { color: var(--accent); }
+
+        p {
+            font-weight: 300;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 36px;
+        }
+
+        .stores {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .store-btn {
+            display: block;
+            background: var(--accent);
+            color: var(--bg);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 14px 24px;
+            border-radius: 100px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px var(--accent-glow);
+        }
+
+        .store-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 50px rgba(168, 198, 127, 0.2);
+        }
+
+        .store-btn.secondary {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid rgba(232, 228, 217, 0.15);
+            box-shadow: none;
+        }
+
+        .store-btn.secondary:hover {
+            border-color: rgba(232, 228, 217, 0.3);
+            box-shadow: none;
+        }
+
+        .footer-note {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="badge">Friend Invite</div>
+        <h1>Someone wants to build <span>habits with you</span></h1>
+        <p>You've been invited to commit together on Human Habits. Download the app and your invite will be waiting.</p>
+        <div class="stores">
+            <!-- TODO: Replace with actual App Store / Play Store URLs -->
+            <a href="#" class="store-btn">Download on iOS</a>
+            <a href="#" class="store-btn secondary">Download on Android</a>
+        </div>
+        <p class="footer-note">The invite code in your link will be applied automatically.</p>
+    </div>
+
+    <script>
+        // Extract invite code from URL path: /invite/CODE
+        const pathParts = window.location.pathname.split('/');
+        const inviteIdx = pathParts.indexOf('invite');
+        const inviteCode = inviteIdx !== -1 ? pathParts[inviteIdx + 1] : null;
+
+        if (inviteCode) {
+            // Store invite code so the app can pick it up
+            // This also helps with deferred deep linking
+            try {
+                sessionStorage.setItem('hh_invite_code', inviteCode);
+            } catch(e) {}
+
+            // TODO: Update store URLs with invite code as query param
+            // e.g., https://apps.apple.com/app/human-habits/id123?invite=CODE
+        }
+    </script>
+</body>
+</html>
