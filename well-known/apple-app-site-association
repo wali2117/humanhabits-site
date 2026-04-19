@@ -3,10 +3,8 @@
     "apps": [],
     "details": [
       {
-        "appID": "TEAMID.app.humanhabits.ios",
-        "paths": [
-          "/invite/*"
-        ]
+        "appID": "4VQYSMG8ZX.com.humanhabits.app",
+        "paths": ["/invite", "/invite/*"]
       }
     ]
   }
